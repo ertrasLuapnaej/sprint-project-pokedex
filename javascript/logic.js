@@ -1,6 +1,5 @@
 
 let pokemon = document.getElementById('pokemon'); //get the div that display the image of the pokemon
-
 let pokeValeur = ''; // recupère la valeur tapée par l'utilisateur
 
 
@@ -29,12 +28,21 @@ let pokemonData = (value) => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${value}`)
         .then(response => response.json())
         .then(response => {
-            let responseAPI = response.sprites.front_shiny;
-            console.log("responseAPI", responseAPI)
-            pokemon.innerHTML = `<Img class="imgPokemon" src="${responseAPI}"/>`;
+            let responseImage = response.sprites.front_shiny;
+            console.log('base response', response)
+            let responseName = response.name;
+            pokemon.innerHTML =
+                `
+                <span class="name">${responseName.toUpperCase()}</span> 
+                <Img class="imgPokemon" src="${responseImage}"/> 
+                `;
+            console.log(responseName);
         })
 
-        .catch(error => alert("Erreur : " + error));
+        .catch(error => {
+            pokemon.innerHTML = `<p class="welcome" >Sorry <br/> your request didn't match anything we know  <br/>... </p>`
+            console.log(("Erreur : " + error))
+        });
 }
 
 

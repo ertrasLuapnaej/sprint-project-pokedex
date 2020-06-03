@@ -1,1 +1,1 @@
-# sprint-project-pokedex
+# sprint-project-pokedex :star:

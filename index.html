@@ -10,19 +10,21 @@
 
 <body>
     <header>
-        <h1>Welcome to ze pokedex of the futur </h1>
+        <div class="LED" ></div>
+        <h1>Pokedex </h1>
     </header>
     <section>
-        <div id="searchField" >
-            <input id="search" type="text" placeholder="Cherches ton pokemon">
-            <button id="searchButton" onclick="getInputValue()" >Rechercher</button>
-        </div>
+        
         <div id='pokemon'>
-            <h3>image du pokemonstre</h3>
+            <p class="welcome" >Waiting for your demand <br/>...<p>
         </div>
 
+        <div id="searchField" >
+            <input id="search" type="text" placeholder="Cherches ton pokemon">
+            <button id="searchButton" onclick="getInputValue()" >Search</button>
+        </div>
     </section>
-    <footer></footer>
+    <footer>Made by Aegir Boissel</footer>
     <script src="./javascript/logic.js"></script>
 </body>
 
