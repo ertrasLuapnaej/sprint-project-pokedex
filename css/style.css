@@ -98,7 +98,7 @@ header{
 
 }
 .imgPokemon{
-    -webkit-filter: drop-shadow(4px 2px 4px rgba(0,0,0,0.5));
+    /* -webkit-filter: drop-shadow(4px 2px 4px rgba(0,0,0,0.5)); */
     width: 15em;
     
 }
@@ -200,3 +200,94 @@ footer{
 }
 
 
+@media screen and (min-width: 641px) {
+    html{
+        background-color: rgb(19, 15, 15);
+    }
+
+    body{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    header{
+        width: 90%;
+        height: 10em;
+        margin: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .LED{
+        width: 6em;
+        height: 6em;
+    }
+
+    h1{
+        margin: 0;
+        font-size: 4em;
+    }
+
+    section{
+        width: 90%;
+        height: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+   #pokemon{
+    width: 90%;
+    height: 30em;
+   }
+
+   .name{
+    font-size: 2em;
+    position: relative;
+    top: 0em;
+   }
+
+   .imgPokemon{
+    width: 20em;
+   }
+
+   .type{
+    font-size: 2em;
+    position: relative;
+    bottom: 0em;
+   }
+   input{
+       height: 4em;
+   }
+   input::placeholder{
+       font-size: 1em;
+   }
+   .searchButtonS{
+    font-size: 2em;
+    padding: 0.5em;
+   }
+   #randomizer{
+    font-size: 1.5em;
+   }
+   .subButton{
+    width: 100%;
+   }
+   #switchButton{
+    font-size: 1.5em;
+   }
+
+   .chevron{
+    width: 4em;
+    height: auto;
+   }
+
+   footer{
+    width: 100%;
+    background-color: rgb(19, 15, 15);
+   }
+
+  }
