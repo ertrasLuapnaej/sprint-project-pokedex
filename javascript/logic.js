@@ -4,6 +4,7 @@ let switchButton = document.getElementById('switchButton');
 let pokeValeur = ''; // recupère la valeur tapée par l'utilisateur
 let pokeID = ''; //id renvoyé par l'api pour le pokemon sélectionné 
 let searchField = document.getElementById('searchField');
+let randomizer = document.getElementById('randomizer');
 ////////GESTION DU SWITCH SHINY/ BASIC//////////////////////////////////////////////////////////
 
 let isDefault = '';
@@ -48,7 +49,7 @@ if ( key === 13){
 }
 })
 
-//Attribut la valeur du champ de recherche à pokeValeur
+//Attribut la valeur du champs de recherche à pokeValeur
 function getInputValue() {
     let searchValue = document.getElementById('search').value;
     pokeValeur = searchValue;
@@ -70,6 +71,14 @@ const chevronLeft =()=>{
     pokeID --;
     pokeValeur = pokeID;
     pokemonData(pokeValeur);
+}
+
+const fireRandomizer =()=>{
+let getRandom = () => {
+    return(Math.floor( Math.random()*800) );
+}
+pokeValeur=getRandom();
+pokemonData(pokeValeur)
 }
 
 

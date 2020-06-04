@@ -85,6 +85,8 @@ header{
     position: relative;
     top: 1em;
     color: #1f4d21;
+    text-shadow: 2px 2px 0px white;
+
     font-family: "Press-Start";
 }
 .type{
@@ -92,9 +94,13 @@ header{
     bottom: 1em;
     color: #1f4d21;
     font-family: "Press-Start";
+    text-shadow: 1px 1px 0px white;
+
 }
 .imgPokemon{
+    -webkit-filter: drop-shadow(4px 2px 4px rgba(0,0,0,0.5));
     width: 15em;
+    
 }
 
 
@@ -112,31 +118,48 @@ input{
     text-align: center;
     font-family: "Press-Start";
     font-size: 1em;
-    color: floralwhite ;
+    color: #4e0823; ;
     width: 90%;
     height: 3em;
     border-radius: 0.5em;
     border: none;
     padding: 0;
-    background-color: #ffbf00;
+    background-color: whitesmoke;
     margin-bottom: 1em;
 }
 input::placeholder{
+    text-transform: uppercase;
     font-size: 0.7em;
-    color: floralwhite;
+    color:#4e0823c2;
     text-align: center;
 }
 
-#searchButton{
+.midButton{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#randomizer {
+    font-family:"Press-Start";
+    font-size: 0.8em;
+    color:  #4e0823;
+    background-color: #ffbf00;
+    border: none;
+    padding: 1em;
+    border-radius: 10em;
+}
+
+.searchButtonS{
     color:#252919;
     font-family: "NeoGrey";
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: bold;
     background-color: #43bb2a;
     height: 3em;
-    width: 90%;
     border-radius: 0.5em;
     border: solid;
     border-width: 2px;
@@ -175,3 +198,5 @@ footer{
     background-color:  #140205; 
     height: 1em;
 }
+
+
