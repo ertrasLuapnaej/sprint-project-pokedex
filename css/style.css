@@ -28,7 +28,6 @@ section{
     background-color:#4e0823c2;
     padding:0.5em;
     height: 70%;
-    margin-bottom: 4em;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -84,11 +83,16 @@ header{
 }
 .name{
     position: relative;
-    top: 2em;
-    color: floralwhite;
+    top: 1em;
+    color: #1f4d21;
     font-family: "Press-Start";
 }
-
+.type{
+    position: relative;
+    bottom: 1em;
+    color: #1f4d21;
+    font-family: "Press-Start";
+}
 .imgPokemon{
     width: 15em;
 }
@@ -110,12 +114,11 @@ input{
     font-size: 1em;
     color: floralwhite ;
     width: 90%;
-    height: 2em;
+    height: 3em;
     border-radius: 0.5em;
-    border: solid;
-    border-width:2px;
+    border: none;
     padding: 0;
-    background-color: #0d0a4f;
+    background-color: #ffbf00;
     margin-bottom: 1em;
 }
 input::placeholder{
@@ -124,7 +127,7 @@ input::placeholder{
     text-align: center;
 }
 
-button{
+#searchButton{
     color:#252919;
     font-family: "NeoGrey";
     text-transform: uppercase;
@@ -132,15 +135,36 @@ button{
     font-size: 1.2em;
     font-weight: bold;
     background-color: #43bb2a;
-    text-shadow: -1px 1px #baff86;
     height: 3em;
     width: 90%;
     border-radius: 0.5em;
     border: solid;
     border-width: 2px;
     border-color: #200220db;
-    box-shadow: inset 0 -1px 1px rgba(0,0,0,0.5), /*bottom internal shadow*/ inset 0 1px 1px rgba(255,255,255,0.8);
 }
+
+
+.subButton{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1em;
+}
+.chevron{
+    width: 2em;
+    height: auto;
+}
+
+#switchButton{
+    font-family: "Press-Start";
+    font-size:0.7em;
+    border: none;
+    color: #4e0823;
+    background-color:#ffbf00;
+    width: auto;
+    padding: 0 1em;
+    border-radius: 10em;
+}
+
 
 footer{
     font-family: "Press-Start";

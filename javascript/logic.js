@@ -1,25 +1,77 @@
 
-let pokemon = document.getElementById('pokemon'); //get the div that display the image of the pokemon
+let pokemon = document.getElementById('pokemon'); 
+let switchButton = document.getElementById('switchButton');
 let pokeValeur = ''; // recupère la valeur tapée par l'utilisateur
+let pokeID = ''; //id renvoyé par l'api pour le pokemon sélectionné 
+let searchField = document.getElementById('searchField');
+////////GESTION DU SWITCH SHINY/ BASIC//////////////////////////////////////////////////////////
 
+let isDefault = '';
+let isShiny = '';
+let skinValue = isDefault;
+let isSwitched = false;
+
+const switchStatus =()=>{
+    isSwitched = !isSwitched;
+    pokemonData(pokeValeur)
+    return(isSwitched)
+}
+
+//appelé dans pokemon data -> change l'URL de l'image  et le nom du bouton  
+const colorManager=()=>{
+    if(isSwitched == false){
+        skinValue = isDefault;
+        switchButton.innerText = `Basic`
+    }else{
+        skinValue = isShiny;
+        switchButton.innerText = `Shiny`
+    }
+        return(
+            skinValue
+        )
+    }
+///////////////////////////////////////////////////////////////////////////////////////////////
 
 //action du bouton rechercher 
 let searchButton = document.getElementById('searchButton');
-//va déclancher la fonction getInputValue suite à un clic
 searchButton.addEventListener('click', function () {
     getInputValue();
     pokemonData(pokeValeur)
+})
+
+//en appuyant sur entrer ça fait comme "search"  ... youpi 
+searchField.addEventListener('keypress', function(e){
+let key = e.which || e.keyCode || 0;
+if ( key === 13){
+    getInputValue();
+    pokemonData(pokeValeur)
+}
 })
 
 //Attribut la valeur du champ de recherche à pokeValeur
 function getInputValue() {
     let searchValue = document.getElementById('search').value;
     pokeValeur = searchValue;
-    console.log(searchValue, 'searchValue');
     return (
         pokeValeur
     );
 }
+
+
+//logique des chevrons
+
+const chevronRight=()=>{
+    pokeID ++;
+    pokeValeur = pokeID;
+    pokemonData(pokeValeur);
+}
+
+const chevronLeft =()=>{
+    pokeID --;
+    pokeValeur = pokeID;
+    pokemonData(pokeValeur);
+}
+
 
 
 //va taper L'APi
@@ -28,15 +80,21 @@ let pokemonData = (value) => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${value}`)
         .then(response => response.json())
         .then(response => {
-            let responseImage = response.sprites.front_shiny;
-            console.log('base response', response)
+            isDefault = response.sprites.front_default;
+            isShiny = response.sprites.front_shiny;
+            pokeID = response.id;
+            colorManager();
             let responseName = response.name;
+            let type1 = response.types[0].type.name;
+            // let type2 = response.types[1].type.name;
+            console.log(type1)
             pokemon.innerHTML =
                 `
-                <span class="name">${responseName.toUpperCase()}</span> 
-                <Img class="imgPokemon" src="${responseImage}"/> 
+                <span class="name">#${pokeID} ${responseName.toUpperCase()}</span> 
+                <Img class="imgPokemon" src="${skinValue}"/> 
+                <span class="type" > Type: ${type1} </span>
+
                 `;
-            console.log(responseName);
         })
 
         .catch(error => {
