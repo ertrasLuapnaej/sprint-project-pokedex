@@ -90,6 +90,7 @@ let pokemonData = (value) => {
         .then(response => response.json())
         .then(response => {
             isDefault = response.sprites.front_default;
+            console.log(response)
             isShiny = response.sprites.front_shiny;
             pokeID = response.id;
             colorManager();
